@@ -88,16 +88,7 @@ body {
   transform: scale(1.05);
 }
 
-/* Adjacent card glow effects */
+/* Bento grid container */
 .bento-grid-container {
   position: relative;
-}
-
-/* Simple adjacent glow using JavaScript classes */
-.spotlight-card.adjacent-glow {
-  border-color: rgba(82, 0, 176, 0.15);
-  box-shadow: 
-    0 0 8px rgba(82, 0, 176, 0.1),
-    0 0 16px rgba(162, 4, 255, 0.05);
-  transition: all 0.2s ease;
 }

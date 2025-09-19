@@ -139,27 +139,7 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
     e.currentTarget.style.setProperty('--mouse-y', `${y}%`)
   }
 
-  // Handle adjacent card glow effects
-  const handleCardHover = (isHovering: boolean) => {
-    const cards = document.querySelectorAll('.spotlight-card')
-    cards.forEach(card => {
-      if (isHovering) {
-        card.classList.add('adjacent-glow')
-      } else {
-        card.classList.remove('adjacent-glow')
-      }
-    })
-  }
 
-  // Enhanced mouse move handler with adjacent glow
-  const handleMouseMoveWithGlow = (e: React.MouseEvent<HTMLDivElement>) => {
-    handleMouseMove(e)
-    handleCardHover(true)
-  }
-
-  const handleMouseLeave = () => {
-    handleCardHover(false)
-  }
 
   return (
     <>
@@ -218,11 +198,7 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
               transition={{ duration: 0.5, delay: 1.4 }}
             >
               {/* Quote Box */}
-              <div
-                className="spotlight-card rounded-2xl p-8 flex items-center justify-center"
-                onMouseMove={handleMouseMoveWithGlow}
-                onMouseLeave={handleMouseLeave}
-              >
+              <div className="spotlight-card rounded-2xl p-8 flex items-center justify-center" onMouseMove={handleMouseMove}>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -238,11 +214,7 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
               </div>
 
               {/* 3D Model Placeholder */}
-              <div
-                className="spotlight-card rounded-2xl p-8 flex items-center justify-center"
-                onMouseMove={handleMouseMoveWithGlow}
-                onMouseLeave={handleMouseLeave}
-              >
+              <div className="spotlight-card rounded-2xl p-8 flex items-center justify-center" onMouseMove={handleMouseMove}>
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -269,8 +241,7 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
               <motion.div
                 ref={profileRef}
                 className="row-span-7 spotlight-card rounded-2xl p-8 flex items-center justify-center"
-                onMouseMove={handleMouseMoveWithGlow}
-                onMouseLeave={handleMouseLeave}
+                onMouseMove={handleMouseMove}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: animationComplete ? 1 : 0 }}
                 transition={{ duration: 0.5, delay: animationComplete ? 0 : 0 }}
@@ -292,8 +263,7 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
               {/* Tech Stack - 3 rows */}
               <motion.div
                 className="row-span-3 spotlight-card rounded-2xl p-4 overflow-hidden"
-                onMouseMove={handleMouseMoveWithGlow}
-                onMouseLeave={handleMouseLeave}
+                onMouseMove={handleMouseMove}
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: profileImageLoaded ? 1 : 0, y: profileImageLoaded ? 0 : 50 }}
                 transition={{ duration: 0.5, delay: 1.6 }}
@@ -307,8 +277,7 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
               {/* Arrow - 1 row */}
               <motion.div
                 className="row-span-1 spotlight-card rounded-2xl flex items-center justify-center"
-                onMouseMove={handleMouseMoveWithGlow}
-                onMouseLeave={handleMouseLeave}
+                onMouseMove={handleMouseMove}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: profileImageLoaded ? 1 : 0, y: profileImageLoaded ? 0 : 20 }}
                 transition={{ duration: 0.5, delay: 1.7 }}
@@ -332,8 +301,7 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 1.4 }}
-              onMouseMove={handleMouseMoveWithGlow}
-              onMouseLeave={handleMouseLeave}
+              onMouseMove={handleMouseMove}
             >
               <FlowingMenuReactBits items={experiences} />
             </motion.div>
