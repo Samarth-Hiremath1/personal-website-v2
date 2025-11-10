@@ -7,6 +7,15 @@ import { useThree, Canvas, extend } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import countries from "../../data/globe.json";
 
+// Extend React Three Fiber with ThreeGlobe
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      threeGlobe: any;
+    }
+  }
+}
+
 extend({ ThreeGlobe });
 
 const RING_PROPAGATION_SPEED = 3;
