@@ -246,6 +246,25 @@ export function World(props: WorldProps) {
   const { globeConfig } = props;
   const scene = new Scene();
   scene.fog = new Fog(0xffffff, 400, 2000);
+  
+  // Responsive camera distance based on screen size
+  const [cameraDistance, setCameraDistance] = useState(cameraZ);
+  
+  useEffect(() => {
+    const updateCameraDistance = () => {
+      // Use closer camera on mobile for better visibility
+      if (window.innerWidth < 768) {
+        setCameraDistance(250);
+      } else {
+        setCameraDistance(cameraZ);
+      }
+    };
+    
+    updateCameraDistance();
+    window.addEventListener('resize', updateCameraDistance);
+    return () => window.removeEventListener('resize', updateCameraDistance);
+  }, []);
+  
   return (
     <Canvas scene={scene} camera={new PerspectiveCamera(50, aspect, 180, 1800)}>
       <WebGLRendererConfig />
@@ -267,8 +286,8 @@ export function World(props: WorldProps) {
       <OrbitControls
         enablePan={false}
         enableZoom={false}
-        minDistance={cameraZ}
-        maxDistance={cameraZ}
+        minDistance={cameraDistance}
+        maxDistance={cameraDistance}
         autoRotateSpeed={1}
         autoRotate={true}
         minPolarAngle={Math.PI / 3.5}

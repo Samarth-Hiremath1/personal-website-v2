@@ -41,8 +41,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
-    const experienceSection = document.getElementById('experience')
-    experienceSection?.scrollIntoView({ behavior: 'smooth' })
+    // Do nothing - just prevent default link behavior
   }
 
   const handleMouseEnter = (ev: React.MouseEvent<HTMLAnchorElement>) => {

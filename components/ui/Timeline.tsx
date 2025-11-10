@@ -56,8 +56,10 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               <div className="sticky flex flex-col md:flex-row z-40 items-start top-32 sm:top-36 md:top-40 self-start max-w-xs lg:max-w-sm md:w-full h-fit">
                 {/* Logo container - centered on timeline */}
                 <div 
-                  className="h-16 w-16 sm:h-20 sm:w-20 absolute -left-2 md:-left-2 rounded-full bg-white flex items-center justify-center overflow-hidden"
+                  className="h-16 w-16 sm:h-20 sm:w-20 absolute rounded-full bg-white flex items-center justify-center overflow-hidden"
                   style={{ 
+                    left: '2rem',
+                    transform: 'translateX(-50%)',
                     border: '2px solid #6C1FFF',
                     boxShadow: '0 0 15px rgba(108, 31, 255, 0.4)'
                   }}
