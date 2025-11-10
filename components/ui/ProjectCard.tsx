@@ -23,12 +23,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   const hasImages = images.length > 0;
   const imageCount = images.length;
 
-  const handleLinkClick = (url: string) => {
+  const handleLinkClick = (url: string, e: React.MouseEvent) => {
+    e.stopPropagation();
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (
-    <div className={`w-full h-full ${gradient} rounded-[40px] p-8 flex gap-6`}>
+    <div className={`w-full h-full ${gradient} rounded-[40px] p-8 flex gap-6`} style={{ pointerEvents: 'auto' }}>
       {/* Left side - Content */}
       <div className={`flex flex-col justify-between ${hasImages ? 'w-1/2' : 'w-full'}`}>
         <div>
@@ -51,7 +52,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         <div className="flex gap-3 relative z-50">
           {demoLink && (
             <button
-              onClick={() => handleLinkClick(demoLink)}
+              onClick={(e) => handleLinkClick(demoLink, e)}
               className="px-5 py-2.5 bg-white/30 hover:bg-white/40 backdrop-blur-sm rounded-lg text-sm text-white font-semibold transition-all duration-200 hover:scale-105 cursor-pointer border-0"
               style={{ pointerEvents: 'auto' }}
             >
@@ -61,7 +62,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           
           {githubLink && (
             <button
-              onClick={() => handleLinkClick(githubLink)}
+              onClick={(e) => handleLinkClick(githubLink, e)}
               className="px-5 py-2.5 bg-white/30 hover:bg-white/40 backdrop-blur-sm rounded-lg text-sm text-white font-semibold transition-all duration-200 hover:scale-105 cursor-pointer border-0"
               style={{ pointerEvents: 'auto' }}
             >

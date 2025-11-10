@@ -7,6 +7,7 @@ import LightRays from '../components/ui/LightRays'
 import { TimelineDemo } from '../components/TimelineDemo'
 import { GlobeDemo } from '../components/ui/GlobeDemo'
 import { ProjectsSection } from '../components/ProjectsSection'
+import { LeadershipSection } from '../components/LeadershipSection'
 
 export default function Home() {
   const [showLightRays, setShowLightRays] = useState(false)
@@ -83,11 +84,8 @@ export default function Home() {
         </section>
 
         {/* Leadership Section */}
-        <section id="leadership" className="min-h-screen px-8 py-16 flex items-center justify-center">
-          <div className="text-center">
-            <h2 className="text-4xl font-bold text-white mb-4">Leadership</h2>
-            <p className="text-gray-400">Coming Soon</p>
-          </div>
+        <section id="leadership" className="min-h-screen">
+          <LeadershipSection />
         </section>
       </div>
     </main>

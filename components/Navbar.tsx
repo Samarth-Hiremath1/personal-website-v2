@@ -20,7 +20,7 @@ export default function Navbar() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 1.2 }}
-      className="fixed top-0 left-0 right-0 z-50 px-8 py-4"
+      className="fixed top-0 left-0 right-0 z-[9999] px-8 py-4"
     >
       <div className="max-w-[95vw] mx-auto">
         <div className="spotlight-card rounded-2xl px-8 py-4 flex items-center justify-between">

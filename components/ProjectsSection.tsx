@@ -168,12 +168,29 @@ export const ProjectsSection: React.FC = () => {
     // Blur for depth perception
     const blur = cardsOnTop > 0 ? cardsOnTop * 1.5 : 0;
 
-    // Z-index: higher index = on top
-    const zIndex = index + 1;
+    // Z-index: Cards that are currently active should be on top
+    // When a card is in view (rawProgress 0-300), it should have highest z-index
+    // Cards that haven't appeared yet should be below
+    // Cards that are done should be at the bottom
+    let zIndex = 10;
+    if (rawProgress < 0) {
+      // Card hasn't appeared yet - should be below current card
+      zIndex = 5 - index;
+    } else if (rawProgress >= 0 && rawProgress < 300) {
+      // Card is currently active - should be on top
+      zIndex = 100 + index;
+    } else {
+      // Card is done - should be at bottom
+      zIndex = index;
+    }
 
     // Only show cards after header is visible
     const headerVisible = headerRef.current && headerRef.current.getBoundingClientRect().top <= 100;
     const isVisible = headerVisible && rawProgress >= -10;
+
+    // Determine if this card should be interactive
+    // A card is interactive if it's currently in the active viewing range
+    const isInteractive = rawProgress >= 0 && rawProgress < 300;
 
     return {
       transform: `translateY(${translateY}%) scale(${scale})`,
@@ -181,6 +198,7 @@ export const ProjectsSection: React.FC = () => {
       top: `calc(50% - 360px + ${stackOffset}px)`, // Positioned higher to show full card including buttons
       opacity: isVisible ? opacity : 0,
       zIndex: zIndex,
+      pointerEvents: (isInteractive ? 'auto' : 'none') as React.CSSProperties['pointerEvents'],
       transition: 'transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.3s ease, filter 0.3s ease'
     };
   };

@@ -185,24 +185,25 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
 
             {/* Left Column - 5 units */}
             <motion.div
-              className="lg:col-span-5 grid grid-rows-2 gap-4"
+              className="lg:col-span-5 grid grid-rows-[35%_63%] gap-4"
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 1.4 }}
             >
               {/* Quote Box */}
-              <div className="spotlight-card rounded-2xl p-8 flex items-center justify-center" onMouseMove={handleMouseMove}>
+              <div className="spotlight-card rounded-2xl p-8 flex items-center justify-start" onMouseMove={handleMouseMove}>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 1.6 }}
-                  className="text-center"
+                  className="text-left space-y-4"
                 >
-                  <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-                    Design.<br />
-                    Build.<br />
-                    Lead.
-                  </h2>
+                  <p className="text-2xl md:text-3xl font-semibold text-white leading-relaxed italic">
+                    "The best way to predict the future is to create it."
+                  </p>
+                  <p className="text-lg text-gray-400">
+                    - Peter Drucker
+                  </p>
                 </motion.div>
               </div>
 
