@@ -6,14 +6,15 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  transition: all 0.25s ease-in-out;
 }
 
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: #0A0A0A;
-  color: white;
+  background-color: #0A0812;
+  color: #FFFFFF;
 }
 
 html {
@@ -29,23 +30,23 @@ body {
 }
 
 .glass-morphism {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(19, 16, 36, 0.6);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(108, 31, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(108, 31, 255, 0.15);
 }
 
 .bento-glow {
-  box-shadow: 0 0 15px rgba(82, 0, 176, 0.2), 0 0 30px rgba(162, 4, 255, 0.15);
+  box-shadow: 0 0 15px rgba(108, 31, 255, 0.3), 0 0 30px rgba(168, 92, 255, 0.2);
 }
 
 .spotlight-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: #131024;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(108, 31, 255, 0.15);
   position: relative;
   overflow: hidden;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease-in-out;
 }
 
 .spotlight-card::before {
@@ -57,11 +58,11 @@ body {
   height: 100%;
   background: radial-gradient(
     600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(82, 0, 176, 0.12),
+    rgba(108, 31, 255, 0.08),
     transparent 40%
   );
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.25s ease-in-out;
   pointer-events: none;
   border-radius: inherit;
 }
@@ -71,11 +72,9 @@ body {
 }
 
 .spotlight-card:hover {
-  border-color: rgba(82, 0, 176, 0.25);
-  transform: scale(1.002);
-  box-shadow: 
-    0 0 15px rgba(82, 0, 176, 0.15),
-    0 0 30px rgba(162, 4, 255, 0.1);
+  border-color: rgba(108, 31, 255, 0.3);
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(108, 31, 255, 0.4);
 }
 
 .tech-icon {
@@ -91,4 +90,22 @@ body {
 /* Bento grid container */
 .bento-grid-container {
   position: relative;
+}
+/* Hove
+r effects for interactive elements */
+a:hover,
+button:hover {
+  transform: scale(1.03);
+}
+
+/* Typography enhancements */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+p {
+  font-weight: 400;
+  color: #B3A9C9;
+  letter-spacing: 0.3px;
 }

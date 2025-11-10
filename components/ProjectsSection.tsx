@@ -218,11 +218,14 @@ export const ProjectsSection: React.FC = () => {
       {/* Sticky header that stays at top of section */}
       <div
         ref={headerRef}
-        className="sticky top-20 z-10 text-center pt-12 pb-8 px-8 bg-gradient-to-b from-dark via-dark to-transparent"
-        style={getHeaderStyle()}
+        className="sticky top-20 z-10 text-center pt-12 pb-8 px-8"
+        style={{
+          ...getHeaderStyle(),
+          background: 'linear-gradient(180deg, #0A0812 0%, rgba(10, 8, 18, 0) 100%)'
+        }}
       >
-        <h2 className="text-5xl font-bold text-white mb-3">Featured Projects</h2>
-        <p className="text-xl text-gray-400">Building products that solve real problems</p>
+        <h2 className="text-5xl font-bold mb-3" style={{ color: '#FFFFFF' }}>Featured Projects</h2>
+        <p className="text-xl" style={{ color: '#B3A9C9' }}>Building products that solve real problems</p>
       </div>
 
       {/* Cards container */}

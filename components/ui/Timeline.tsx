@@ -38,7 +38,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       ref={containerRef}
     >
       <div className="max-w-4xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <h2 className="text-4xl md:text-5xl mb-12 text-white text-center font-bold">
+        <h2 className="text-4xl md:text-5xl mb-12 text-center font-bold" style={{ color: '#FFFFFF' }}>
           Professional Experience
         </h2>
       </div>
@@ -59,7 +59,13 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             >
               <div className="sticky flex flex-col md:flex-row z-40 items-start top-40 self-start max-w-xs lg:max-w-sm md:w-full h-fit">
                 {/* Logo container - centered on timeline */}
-                <div className="h-20 w-20 absolute -left-2 md:-left-2 rounded-full bg-white flex items-center justify-center border-2 border-primary overflow-hidden">
+                <div 
+                  className="h-20 w-20 absolute -left-2 md:-left-2 rounded-full bg-white flex items-center justify-center overflow-hidden"
+                  style={{ 
+                    border: '2px solid #6C1FFF',
+                    boxShadow: '0 0 15px rgba(108, 31, 255, 0.4)'
+                  }}
+                >
                   <img
                     src={item.logo}
                     alt={`${item.company} logo`}
@@ -68,13 +74,13 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 </div>
                 
                 <div className="hidden md:block md:pl-28 sticky top-40">
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
+                  <h3 className="text-xl md:text-2xl font-bold mb-1" style={{ color: '#FFFFFF' }}>
                     {item.company}
                   </h3>
-                  <p className="text-sm md:text-base text-gray-400 mb-1">
+                  <p className="text-sm md:text-base mb-1" style={{ color: '#B3A9C9' }}>
                     {item.position}
                   </p>
-                  <p className="text-xs md:text-sm text-gray-500">
+                  <p className="text-xs md:text-sm" style={{ color: '#B3A9C9', opacity: 0.7 }}>
                     {item.dates} | {item.location}
                   </p>
                 </div>
@@ -82,13 +88,13 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
               <div className="relative pl-20 pr-4 md:pl-4 w-full">
                 <div className="md:hidden block mb-4 sticky top-20 z-30">
-                  <h3 className="text-xl font-bold text-white mb-1">
+                  <h3 className="text-xl font-bold mb-1" style={{ color: '#FFFFFF' }}>
                     {item.company}
                   </h3>
-                  <p className="text-sm text-gray-400 mb-1">
+                  <p className="text-sm mb-1" style={{ color: '#B3A9C9' }}>
                     {item.position}
                   </p>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs" style={{ color: '#B3A9C9', opacity: 0.7 }}>
                     {item.dates} | {item.location}
                   </p>
                 </div>
@@ -100,15 +106,17 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         <div
           style={{
             height: height + "px",
+            background: 'linear-gradient(to bottom, transparent 0%, rgba(108, 31, 255, 0.3) 10%, rgba(108, 31, 255, 0.3) 90%, transparent 100%)'
           }}
-          className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-gray-700 to-transparent to-[99%]  [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_80%,transparent_100%)] "
+          className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px]"
         >
           <motion.div
             style={{
               height: heightTransform,
               opacity: opacityTransform,
+              background: 'linear-gradient(to top, #A85CFF 0%, #6C1FFF 50%, transparent 100%)'
             }}
-            className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-secondary via-primary to-transparent from-[0%] via-[10%] rounded-full"
+            className="absolute inset-x-0 top-0 w-[2px] rounded-full"
           />
         </div>
       </div>

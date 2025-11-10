@@ -169,9 +169,9 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
               ease: [0.25, 0.1, 0.25, 1.0]
             }}
           >
-            <img 
-              src="/profile.jpg" 
-              alt="Samarth H." 
+            <img
+              src="/profile.jpg"
+              alt="Samarth H."
               className="w-full h-full object-cover"
             />
           </motion.div>
@@ -198,10 +198,10 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
                   transition={{ duration: 0.5, delay: 1.6 }}
                   className="text-left space-y-4"
                 >
-                  <p className="text-2xl md:text-3xl font-semibold text-white leading-relaxed italic">
+                  <p className="text-2xl md:text-3xl font-semibold leading-relaxed italic" style={{ color: '#FFFFFF' }}>
                     "The best way to predict the future is to create it."
                   </p>
-                  <p className="text-lg text-gray-400">
+                  <p className="text-lg" style={{ color: '#B3A9C9' }}>
                     - Peter Drucker
                   </p>
                 </motion.div>
@@ -215,15 +215,15 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
                   transition={{ duration: 0.5, delay: 1.8 }}
                   className="text-center"
                 >
-                  <div className="w-32 h-32 mx-auto mb-4 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
-                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" className="text-white">
+                  <div className="w-32 h-32 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #6C1FFF 0%, #A85CFF 100%)' }}>
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" style={{ color: '#FFFFFF' }}>
                       <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                       <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                       <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </div>
-                  <p className="text-gray-400">3D Robot Model</p>
-                  <p className="text-sm text-gray-500">Coming Soon</p>
+                  <p style={{ color: '#B3A9C9' }}>3D Robot Model</p>
+                  <p className="text-sm" style={{ color: '#B3A9C9', opacity: 0.7 }}>Coming Soon</p>
                 </motion.div>
               </div>
             </motion.div>
@@ -240,9 +240,9 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
                 animate={{ opacity: animationComplete ? 1 : 0 }}
                 transition={{ duration: 0.5, delay: animationComplete ? 0 : 0 }}
               >
-                <img 
-                  src="/profile.jpg" 
-                  alt="Samarth H." 
+                <img
+                  src="/profile.jpg"
+                  alt="Samarth H."
                   className="w-full h-full object-cover"
                 />
               </motion.div>
@@ -276,7 +276,7 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
                 <motion.div
                   animate={{ y: [-3, 3, -3] }}
                   transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-                  className="text-primary"
+                  style={{ color: '#6C1FFF' }}
                 >
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
                     <path d="M7 13L12 18L17 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

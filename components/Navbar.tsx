@@ -12,7 +12,8 @@ export default function Navbar() {
   ]
 
   const handleContactClick = () => {
-    window.location.href = 'mailto:samhiremath@ucdavis.edu'
+    const contactSection = document.getElementById('contact')
+    contactSection?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
@@ -23,7 +24,16 @@ export default function Navbar() {
       className="fixed top-0 left-0 right-0 z-[9999] px-8 py-4"
     >
       <div className="max-w-[95vw] mx-auto">
-        <div className="spotlight-card rounded-2xl px-8 py-4 flex items-center justify-between">
+        <div 
+          className="rounded-2xl px-8 py-4 flex items-center justify-between relative overflow-hidden"
+          style={{
+            background: 'rgba(19, 16, 36, 0.4)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+            border: '1px solid rgba(255, 255, 255, 0.15)',
+            boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.2)'
+          }}
+        >
           {/* Logo */}
           <div className="text-xl font-bold text-white">
             Samarth H.
@@ -35,16 +45,23 @@ export default function Navbar() {
               <motion.a
                 key={item.name}
                 href={item.href}
-                className="text-gray-300 hover:text-white transition-colors duration-200 cursor-pointer"
+                className="cursor-pointer transition-colors duration-200"
+                style={{ color: '#B3A9C9' }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#FFFFFF'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#B3A9C9'}
               >
                 {item.name}
               </motion.a>
             ))}
             <motion.button
               onClick={handleContactClick}
-              className="bg-gradient-to-r from-primary to-secondary px-6 py-2 rounded-lg text-white font-medium hover:shadow-lg hover:shadow-primary/25 transition-all duration-200"
+              className="px-6 py-2 rounded-xl text-white font-medium transition-all duration-200"
+              style={{
+                background: 'linear-gradient(90deg, #FF007F 0%, #FF5E00 100%)',
+                boxShadow: '0 0 25px rgba(255,94,0,0.5)'
+              }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

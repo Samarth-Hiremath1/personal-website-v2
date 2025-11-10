@@ -29,18 +29,31 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   };
 
   return (
-    <div className={`w-full h-full ${gradient} rounded-[40px] p-8 flex gap-6`} style={{ pointerEvents: 'auto' }}>
+    <div 
+      className={`w-full h-full rounded-[40px] p-8 flex gap-6`} 
+      style={{ 
+        pointerEvents: 'auto',
+        background: '#18132C',
+        border: '1px solid rgba(108, 31, 255, 0.15)',
+        boxShadow: '0 0 20px rgba(108, 31, 255, 0.15)'
+      }}
+    >
       {/* Left side - Content */}
       <div className={`flex flex-col justify-between ${hasImages ? 'w-1/2' : 'w-full'}`}>
         <div>
-          <h3 className="text-3xl font-bold text-white mb-4 select-text">{title}</h3>
-          <p className="text-base text-gray-100 mb-6 leading-relaxed select-text whitespace-pre-line">{description}</p>
+          <h3 className="text-3xl font-bold mb-4 select-text" style={{ color: '#FFFFFF' }}>{title}</h3>
+          <p className="text-base mb-6 leading-relaxed select-text whitespace-pre-line" style={{ color: '#B3A9C9', letterSpacing: '0.3px' }}>{description}</p>
           
           <div className="flex flex-wrap gap-2 mb-6">
             {tags.map((tag, index) => (
               <span
                 key={index}
-                className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-sm text-white font-medium"
+                className="px-3 py-1.5 backdrop-blur-sm rounded-full text-sm font-medium"
+                style={{
+                  background: 'rgba(108, 31, 255, 0.2)',
+                  color: '#A85CFF',
+                  border: '1px solid rgba(108, 31, 255, 0.3)'
+                }}
               >
                 {tag}
               </span>
@@ -53,8 +66,24 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           {demoLink && (
             <button
               onClick={(e) => handleLinkClick(demoLink, e)}
-              className="px-5 py-2.5 bg-white/30 hover:bg-white/40 backdrop-blur-sm rounded-lg text-sm text-white font-semibold transition-all duration-200 hover:scale-105 cursor-pointer border-0"
-              style={{ pointerEvents: 'auto' }}
+              className="px-5 py-2.5 backdrop-blur-sm rounded-xl text-sm font-semibold transition-all duration-200 cursor-pointer"
+              style={{ 
+                pointerEvents: 'auto',
+                background: 'transparent',
+                color: '#FFFFFF',
+                border: '2px solid transparent',
+                backgroundImage: 'linear-gradient(#18132C, #18132C), linear-gradient(90deg, #FF007F 0%, #FF5E00 100%)',
+                backgroundOrigin: 'border-box',
+                backgroundClip: 'padding-box, border-box'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'scale(1.05)';
+                e.currentTarget.style.boxShadow = '0 0 20px rgba(255, 94, 0, 0.6)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
             >
               Demo
             </button>
@@ -63,8 +92,24 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           {githubLink && (
             <button
               onClick={(e) => handleLinkClick(githubLink, e)}
-              className="px-5 py-2.5 bg-white/30 hover:bg-white/40 backdrop-blur-sm rounded-lg text-sm text-white font-semibold transition-all duration-200 hover:scale-105 cursor-pointer border-0"
-              style={{ pointerEvents: 'auto' }}
+              className="px-5 py-2.5 backdrop-blur-sm rounded-xl text-sm font-semibold transition-all duration-200 cursor-pointer"
+              style={{ 
+                pointerEvents: 'auto',
+                background: 'transparent',
+                color: '#FFFFFF',
+                border: '2px solid transparent',
+                backgroundImage: 'linear-gradient(#18132C, #18132C), linear-gradient(90deg, #FF007F 0%, #FF5E00 100%)',
+                backgroundOrigin: 'border-box',
+                backgroundClip: 'padding-box, border-box'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'scale(1.05)';
+                e.currentTarget.style.boxShadow = '0 0 20px rgba(255, 94, 0, 0.6)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
             >
               GitHub
             </button>

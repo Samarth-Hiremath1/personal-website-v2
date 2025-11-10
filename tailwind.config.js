@@ -8,12 +8,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#5200B0',
-        secondary: '#A204FF',
-        accent: '#8B5CF6',
-        dark: '#0A0A0A',
+        primary: '#6C1FFF',
+        secondary: '#A85CFF',
+        accent: '#2B1F3F',
+        dark: '#0A0812',
+        surface: '#131024',
+        card: '#18132C',
+        'text-primary': '#FFFFFF',
+        'text-secondary': '#B3A9C9',
         'glass-bg': 'rgba(255, 255, 255, 0.05)',
-        'glass-border': 'rgba(255, 255, 255, 0.1)',
+        'glass-border': 'rgba(108, 31, 255, 0.2)',
       },
       backdropBlur: {
         xs: '2px',

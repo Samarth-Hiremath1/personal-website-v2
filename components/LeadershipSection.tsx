@@ -44,8 +44,8 @@ export const LeadershipSection: React.FC = () => {
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-20">
-          <h2 className="text-5xl font-bold text-white mb-3">Leadership</h2>
-          <p className="text-xl text-gray-400">Empowering communities through initiative and collaboration</p>
+          <h2 className="text-5xl font-bold mb-3" style={{ color: '#FFFFFF' }}>Leadership</h2>
+          <p className="text-xl" style={{ color: '#B3A9C9' }}>Empowering communities through initiative and collaboration</p>
         </div>
 
         {/* Experience Cards */}
@@ -122,13 +122,18 @@ const LeadershipCard: React.FC<LeadershipCardProps> = ({ experience, index }) =>
       <div
         className={`
           flex flex-col md:flex-row items-stretch
-          bg-[#1a1a1a] rounded-xl
+          rounded-xl
           transition-all duration-300
           hover:scale-[1.02]
           overflow-hidden
           min-h-[400px]
           ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}
         `}
+        style={{
+          background: '#18132C',
+          border: '1px solid rgba(108, 31, 255, 0.15)',
+          boxShadow: '0 0 20px rgba(108, 31, 255, 0.15)'
+        }}
       >
         {/* Image */}
         <div className="w-full md:w-[45%] flex-shrink-0 relative">
@@ -144,16 +149,21 @@ const LeadershipCard: React.FC<LeadershipCardProps> = ({ experience, index }) =>
         {/* Content */}
         <div className="w-full md:w-[55%] p-10 flex flex-col justify-center space-y-5">
           <div>
-            <h3 className="text-3xl font-bold text-white mb-2 transition-colors duration-300 group-hover:text-primary">
+            <h3 
+              className="text-3xl font-bold mb-2 transition-colors duration-300"
+              style={{ color: '#FFFFFF' }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#6C1FFF'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#FFFFFF'}
+            >
               {experience.title}
             </h3>
-            <p className="text-lg text-gray-400">
+            <p className="text-lg" style={{ color: '#B3A9C9' }}>
               {experience.role} • {experience.year}
             </p>
           </div>
           <div className="space-y-5">
             {experience.description.map((paragraph, idx) => (
-              <p key={idx} className="text-gray-300 leading-relaxed text-base">
+              <p key={idx} className="leading-relaxed text-base" style={{ color: '#B3A9C9', letterSpacing: '0.3px' }}>
                 {paragraph}
               </p>
             ))}
