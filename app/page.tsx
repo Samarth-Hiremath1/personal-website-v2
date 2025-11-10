@@ -73,12 +73,12 @@ export default function Home() {
         </section>
 
         {/* Experience Section */}
-        <section id="experience" className="min-h-screen px-8 py-16 pb-32">
+        <section id="experience" className="min-h-screen px-8 py-16 pb-48">
           <TimelineDemo />
         </section>
 
         {/* Projects Section */}
-        <section id="projects" className="min-h-screen pt-16">
+        <section id="projects" className="min-h-screen pt-32">
           <ProjectsSection />
         </section>
 
