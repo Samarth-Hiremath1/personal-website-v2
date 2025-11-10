@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globe</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: transparent;
+        }
+        #globe-container {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="globe-container"></div>
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+    <script type="module">
+        import * as THREE from 'three';
+        import ThreeGlobe from 'https://cdn.jsdelivr.net/npm/three-globe@2.30.0/+esm';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.Fog(0xffffff, 400, 2000);
+        
+        const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 180, 1800);
+        camera.position.z = window.innerWidth < 768 ? 250 : 300;
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setClearColor(0xffaaff, 0);
+        document.getElementById('globe-container').appendChild(renderer.domElement);
+
+        const globe = new ThreeGlobe()
+            .showAtmosphere(true)
+            .atmosphereColor('#6C1FFF')
+            .atmosphereAltitude(0.1);
+
+        // Set globe material properties
+        const globeMaterial = globe.globeMaterial();
+        globeMaterial.color = new THREE.Color('#252035');
+        globeMaterial.emissive = new THREE.Color('#252035');
+        globeMaterial.emissiveIntensity = 0.2;
+        globeMaterial.shininess = 0.9;
+
+        // Load countries data for hexagons
+        fetch('https://raw.githubusercontent.com/vasturiano/three-globe/master/example/datasets/ne_110m_admin_0_countries.geojson')
+            .then(res => res.json())
+            .then(countries => {
+                globe
+                    .hexPolygonsData(countries.features)
+                    .hexPolygonResolution(3)
+                    .hexPolygonMargin(0.7)
+                    .hexPolygonColor(() => 'rgba(168, 92, 255, 0.6)');
+            })
+            .catch(err => console.error('Error loading countries:', err));
+
+        // Sample arcs data
+        const colors = ['#7B3EFF', '#FF3D8A', '#FF6B00'];
+        const sampleArcs = [
+            { order: 1, startLat: -19.885592, startLng: -43.951191, endLat: -22.9068, endLng: -43.1729, arcAlt: 0.1, color: colors[0] },
+            { order: 1, startLat: 28.6139, startLng: 77.209, endLat: 3.139, endLng: 101.6869, arcAlt: 0.2, color: colors[1] },
+            { order: 2, startLat: 1.3521, startLng: 103.8198, endLat: 35.6762, endLng: 139.6503, arcAlt: 0.2, color: colors[2] },
+            { order: 2, startLat: 51.5072, startLng: -0.1276, endLat: 3.139, endLng: 101.6869, arcAlt: 0.3, color: colors[0] },
+            { order: 3, startLat: -33.8688, startLng: 151.2093, endLat: 22.3193, endLng: 114.1694, arcAlt: 0.3, color: colors[1] },
+            { order: 3, startLat: 21.3099, startLng: -157.8581, endLat: 40.7128, endLng: -74.006, arcAlt: 0.3, color: colors[2] },
+            { order: 4, startLat: 11.986597, startLng: 8.571831, endLat: -15.595412, endLng: -56.05918, arcAlt: 0.5, color: colors[0] },
+            { order: 5, startLat: 14.5995, startLng: 120.9842, endLat: 51.5072, endLng: -0.1276, arcAlt: 0.3, color: colors[1] },
+        ];
+
+        globe
+            .arcsData(sampleArcs)
+            .arcColor('color')
+            .arcAltitude('arcAlt')
+            .arcStroke(0.3)
+            .arcDashLength(0.9)
+            .arcDashGap(15)
+            .arcDashAnimateTime(1000);
+
+        scene.add(globe);
+
+        const ambientLight = new THREE.AmbientLight(0x9D6FFF, 0.6);
+        scene.add(ambientLight);
+
+        const directionalLight1 = new THREE.DirectionalLight(0xB87FFF);
+        directionalLight1.position.set(-400, 100, 400);
+        scene.add(directionalLight1);
+
+        const directionalLight2 = new THREE.DirectionalLight(0xB87FFF);
+        directionalLight2.position.set(-200, 500, 200);
+        scene.add(directionalLight2);
+
+        const pointLight = new THREE.PointLight(0xB87FFF, 0.8);
+        pointLight.position.set(-200, 500, 200);
+        scene.add(pointLight);
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enablePan = false;
+        controls.enableZoom = false;
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 1;
+        controls.minPolarAngle = Math.PI / 3.5;
+        controls.maxPolarAngle = Math.PI - Math.PI / 3;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.position.z = window.innerWidth < 768 ? 250 : 300;
+        });
+
+        animate();
+    </script>
+</body>
+</html>
