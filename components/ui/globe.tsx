@@ -85,7 +85,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
     showAtmosphere: true,
     atmosphereAltitude: 0.1,
     polygonColor: "rgba(255,255,255,0.7)",
-    globeColor: "#1d072e",
+    globeColor: "#1A1728",
     emissive: "#000000",
     emissiveIntensity: 0.1,
     shininess: 0.9,
