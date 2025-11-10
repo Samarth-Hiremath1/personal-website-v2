@@ -17,7 +17,7 @@ export const ProjectsSection: React.FC = () => {
       demoLink: "https://www.linkedin.com/feed/update/urn:li:activity:7374472314530422784/",
       githubLink: "https://github.com/Samarth-Hiremath1/Trajectory.ai",
       images: [
-        "/projects/trajectory-1.png",
+        "/projects/trajectory-1.jpg",
         "/projects/trajectory-2.png",
         "/projects/trajectory-3.png",
         "/projects/trajectory-4.png"
@@ -31,7 +31,7 @@ export const ProjectsSection: React.FC = () => {
       demoLink: "https://devpost.com/software/vq-vocal-intelligence",
       githubLink: "https://github.com/Samarth-Hiremath1/VQ-sachacksVI",
       images: [
-        "/projects/vq-1.png",
+        "/projects/vq-1.jpg",
         "/projects/vq-2.png"
       ]
     },
@@ -64,7 +64,7 @@ export const ProjectsSection: React.FC = () => {
       demoLink: "https://docs.google.com/presentation/d/1GdYHb8CVW-bAWbQH8Qt3tYmktVt_v_BQjTn2lCsTA6Y/edit?usp=sharing",
       githubLink: "https://github.com/hanyiliu/SamarthBlackjackBot",
       images: [
-        "/projects/blackjack-1.png"
+        "/projects/blackjack-1.jpg"
       ]
     }
   ];
