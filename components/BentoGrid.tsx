@@ -185,14 +185,14 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
         </motion.div>
       )}
 
-      <div className="min-h-screen pt-24 px-8 pb-8">
-        <div className="max-w-[95vw] mx-auto">
+      <div className="h-full px-4 flex items-start justify-center">
+        <div className="max-w-[95vw] mx-auto w-full pt-4">
           {/* Bento Grid */}
-          <div className="bento-grid-container grid grid-cols-1 lg:grid-cols-12 gap-6 h-[calc(100vh-8rem)]">
+          <div className="bento-grid-container grid grid-cols-1 lg:grid-cols-12 gap-4 h-[calc(100vh-6rem)]">
 
             {/* Left Column - 5 units */}
             <motion.div
-              className="lg:col-span-5 grid grid-rows-2 gap-6"
+              className="lg:col-span-5 grid grid-rows-2 gap-4"
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 1.4 }}
@@ -235,7 +235,7 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
             </motion.div>
 
             {/* Center Column - 3 units */}
-            <div className="lg:col-span-3 grid grid-rows-11 gap-6">
+            <div className="lg:col-span-3 grid grid-rows-11 gap-4">
 
               {/* Profile Image - 7 rows */}
               <motion.div
@@ -265,8 +265,8 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
                 className="row-span-3 spotlight-card rounded-2xl p-4 overflow-hidden"
                 onMouseMove={handleMouseMove}
                 initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: profileImageLoaded ? 1 : 0, y: profileImageLoaded ? 0 : 50 }}
-                transition={{ duration: 0.5, delay: 1.6 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 1.4 }}
               >
                 <div className="h-full flex flex-col justify-center space-y-4">
                   <LogoLoop logos={techLogos1} direction="left" speed={45} />
@@ -276,14 +276,18 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
 
               {/* Arrow - 1 row */}
               <motion.div
-                className="row-span-1 spotlight-card rounded-2xl flex items-center justify-center"
+                className="row-span-1 spotlight-card rounded-2xl flex items-center justify-center py-2 cursor-pointer"
                 onMouseMove={handleMouseMove}
+                onClick={() => {
+                  const aboutSection = document.getElementById('about')
+                  aboutSection?.scrollIntoView({ behavior: 'smooth' })
+                }}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: profileImageLoaded ? 1 : 0, y: profileImageLoaded ? 0 : 20 }}
-                transition={{ duration: 0.5, delay: 1.7 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 1.4 }}
               >
                 <motion.div
-                  animate={{ y: [0, 10, 0] }}
+                  animate={{ y: [-3, 3, -3] }}
                   transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
                   className="text-primary"
                 >
