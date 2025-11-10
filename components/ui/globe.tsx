@@ -234,10 +234,11 @@ export function WebGLRendererConfig() {
   const { gl, size } = useThree();
 
   useEffect(() => {
-    gl.setPixelRatio(window.devicePixelRatio);
+    gl.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Cap pixel ratio for performance
     gl.setSize(size.width, size.height);
-    gl.setClearColor(0xffaaff, 0);
-  }, []);
+    gl.setClearColor(0x000000, 0); // Use black transparent background
+    gl.outputColorSpace = 'srgb'; // Ensure proper color space
+  }, [gl, size]);
 
   return null;
 }

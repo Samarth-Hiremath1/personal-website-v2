@@ -120,69 +120,83 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       {/* Right side - Images */}
       {hasImages && (
         <div className="md:w-1/2 mt-4 md:mt-0">
-          {imageCount === 1 ? (
-            <div className="relative w-full h-full rounded-2xl overflow-hidden flex items-center justify-center">
-              <Image
-                src={images[0]}
-                alt={`${title} preview`}
-                fill
-                sizes="50vw"
-                className="object-contain p-2"
-              />
-            </div>
-          ) : imageCount === 2 ? (
-            <div className="flex flex-col gap-3 h-full">
-              {images.map((image, index) => (
-                <div
-                  key={index}
-                  className="relative w-full h-1/2 rounded-2xl overflow-hidden flex items-center justify-center"
-                >
-                  <Image
-                    src={image}
-                    alt={`${title} preview ${index + 1}`}
-                    fill
-                    sizes="50vw"
-                    className="object-contain p-2"
-                  />
-                </div>
-              ))}
-            </div>
-          ) : imageCount === 4 ? (
-            <div className="grid grid-cols-2 grid-rows-2 gap-3 h-full">
-              {images.map((image, index) => (
-                <div
-                  key={index}
-                  className="relative rounded-2xl overflow-hidden flex items-center justify-center"
-                >
-                  <Image
-                    src={image}
-                    alt={`${title} preview ${index + 1}`}
-                    fill
-                    sizes="25vw"
-                    className="object-contain p-2"
-                  />
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="flex flex-col gap-3 h-full">
-              {images.map((image, index) => (
-                <div
-                  key={index}
-                  className="relative w-full rounded-2xl overflow-hidden flex items-center justify-center"
-                  style={{ height: `${100 / imageCount}%` }}
-                >
-                  <Image
-                    src={image}
-                    alt={`${title} preview ${index + 1}`}
-                    fill
-                    sizes="50vw"
-                    className="object-contain p-2"
-                  />
-                </div>
-              ))}
-            </div>
-          )}
+          {/* Mobile: Always show only first image */}
+          <div className="md:hidden relative w-full h-48 rounded-2xl overflow-hidden flex items-center justify-center">
+            <Image
+              src={images[0]}
+              alt={`${title} preview`}
+              fill
+              sizes="100vw"
+              className="object-contain p-2"
+            />
+          </div>
+
+          {/* Desktop: Show all images with different layouts */}
+          <div className="hidden md:block h-full">
+            {imageCount === 1 ? (
+              <div className="relative w-full h-full rounded-2xl overflow-hidden flex items-center justify-center">
+                <Image
+                  src={images[0]}
+                  alt={`${title} preview`}
+                  fill
+                  sizes="50vw"
+                  className="object-contain p-2"
+                />
+              </div>
+            ) : imageCount === 2 ? (
+              <div className="flex flex-col gap-3 h-full">
+                {images.map((image, index) => (
+                  <div
+                    key={index}
+                    className="relative w-full h-1/2 rounded-2xl overflow-hidden flex items-center justify-center"
+                  >
+                    <Image
+                      src={image}
+                      alt={`${title} preview ${index + 1}`}
+                      fill
+                      sizes="50vw"
+                      className="object-contain p-2"
+                    />
+                  </div>
+                ))}
+              </div>
+            ) : imageCount === 4 ? (
+              <div className="grid grid-cols-2 grid-rows-2 gap-3 h-full">
+                {images.map((image, index) => (
+                  <div
+                    key={index}
+                    className="relative rounded-2xl overflow-hidden flex items-center justify-center"
+                  >
+                    <Image
+                      src={image}
+                      alt={`${title} preview ${index + 1}`}
+                      fill
+                      sizes="25vw"
+                      className="object-contain p-2"
+                    />
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="flex flex-col gap-3 h-full">
+                {images.map((image, index) => (
+                  <div
+                    key={index}
+                    className="relative w-full rounded-2xl overflow-hidden flex items-center justify-center"
+                    style={{ height: `${100 / imageCount}%` }}
+                  >
+                    <Image
+                      src={image}
+                      alt={`${title} preview ${index + 1}`}
+                      fill
+                      sizes="50vw"
+                      className="object-contain p-2"
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       )}
     </div>
