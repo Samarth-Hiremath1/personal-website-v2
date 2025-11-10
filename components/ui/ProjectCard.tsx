@@ -170,7 +170,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 <div
                   key={index}
                   className="relative w-full rounded-2xl overflow-hidden flex items-center justify-center"
-                  style={{ height: `${100 / imagecount}%` }}
+                  style={{ height: `${100 / imageCount}%` }}
                 >
                   <Image
                     src={image}
