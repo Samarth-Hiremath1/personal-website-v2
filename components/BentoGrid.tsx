@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import LogoLoop from './ui/LogoLoop'
 import FlowingMenuReactBits from './ui/FlowingMenuReactBits'
+import Spline from '@splinetool/react-spline'
 import {
   SiReact, SiPython, SiNodedotjs, SiAmazonaws, SiNextdotjs,
   SiTypescript, SiTailwindcss, SiMongodb, SiCplusplus,
@@ -207,23 +208,18 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
                 </motion.div>
               </div>
 
-              {/* 3D Model Placeholder - Hidden on mobile */}
-              <div className="hidden lg:flex spotlight-card rounded-2xl p-8 items-center justify-center" onMouseMove={handleMouseMove}>
+              {/* 3D Robot Model - Hidden on mobile */}
+              <div className="hidden lg:flex spotlight-card rounded-2xl overflow-hidden relative" onMouseMove={handleMouseMove}>
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 1.8 }}
-                  className="text-center"
+                  className="w-full h-full"
                 >
-                  <div className="w-32 h-32 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #6C1FFF 0%, #A85CFF 100%)' }}>
-                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" style={{ color: '#FFFFFF' }}>
-                      <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </div>
-                  <p style={{ color: '#B3A9C9' }}>3D Robot Model</p>
-                  <p className="text-sm" style={{ color: '#B3A9C9', opacity: 0.7 }}>Coming Soon</p>
+                  <Spline 
+                    scene="https://prod.spline.design/RTHSn4kjBimMBOpa/scene.splinecode"
+                    className="w-full h-full"
+                  />
                 </motion.div>
               </div>
             </motion.div>
