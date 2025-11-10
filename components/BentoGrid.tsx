@@ -178,37 +178,37 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
         </motion.div>
       )}
 
-      <div className="h-full px-4 flex items-start justify-center">
+      <div className="h-full px-4 sm:px-6 md:px-8 flex items-start justify-center">
         <div className="max-w-[95vw] mx-auto w-full pt-4">
           {/* Bento Grid */}
-          <div className="bento-grid-container grid grid-cols-1 lg:grid-cols-12 gap-4 h-[calc(100vh-6rem)]">
+          <div className="bento-grid-container grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4 min-h-[calc(100vh-6rem)] lg:h-[calc(100vh-6rem)]">
 
             {/* Left Column - 5 units */}
             <motion.div
-              className="lg:col-span-5 grid grid-rows-[35%_63%] gap-4"
+              className="lg:col-span-5 grid grid-rows-1 lg:grid-rows-[35%_63%] gap-3 sm:gap-4"
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 1.4 }}
             >
               {/* Quote Box */}
-              <div className="spotlight-card rounded-2xl p-8 flex items-center justify-start" onMouseMove={handleMouseMove}>
+              <div className="spotlight-card rounded-2xl p-6 sm:p-8 flex items-center justify-start min-h-[200px] lg:min-h-0" onMouseMove={handleMouseMove}>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 1.6 }}
-                  className="text-left space-y-4"
+                  className="text-left space-y-3 sm:space-y-4"
                 >
-                  <p className="text-2xl md:text-3xl font-semibold leading-relaxed italic" style={{ color: '#FFFFFF' }}>
+                  <p className="text-xl sm:text-2xl md:text-3xl font-semibold leading-relaxed italic" style={{ color: '#FFFFFF' }}>
                     "The best way to predict the future is to create it."
                   </p>
-                  <p className="text-lg" style={{ color: '#B3A9C9' }}>
+                  <p className="text-base sm:text-lg" style={{ color: '#B3A9C9' }}>
                     - Peter Drucker
                   </p>
                 </motion.div>
               </div>
 
-              {/* 3D Model Placeholder */}
-              <div className="spotlight-card rounded-2xl p-8 flex items-center justify-center" onMouseMove={handleMouseMove}>
+              {/* 3D Model Placeholder - Hidden on mobile */}
+              <div className="hidden lg:flex spotlight-card rounded-2xl p-8 items-center justify-center" onMouseMove={handleMouseMove}>
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -229,12 +229,12 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
             </motion.div>
 
             {/* Center Column - 3 units */}
-            <div className="lg:col-span-3 grid grid-rows-11 gap-4">
+            <div className="lg:col-span-3 grid grid-rows-[auto_auto_auto] lg:grid-rows-11 gap-3 sm:gap-4">
 
               {/* Profile Image - 7 rows */}
               <motion.div
                 ref={profileRef}
-                className="row-span-7 spotlight-card rounded-2xl overflow-hidden"
+                className="lg:row-span-7 spotlight-card rounded-2xl overflow-hidden aspect-[3/4] lg:aspect-auto min-h-[400px] lg:min-h-0"
                 onMouseMove={handleMouseMove}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: animationComplete ? 1 : 0 }}
@@ -249,13 +249,13 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
 
               {/* Tech Stack - 3 rows */}
               <motion.div
-                className="row-span-3 spotlight-card rounded-2xl p-4 overflow-hidden"
+                className="lg:row-span-3 spotlight-card rounded-2xl p-3 sm:p-4 overflow-hidden min-h-[120px] lg:min-h-0"
                 onMouseMove={handleMouseMove}
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 1.4 }}
               >
-                <div className="h-full flex flex-col justify-center space-y-4">
+                <div className="h-full flex flex-col justify-center space-y-3 sm:space-y-4">
                   <LogoLoop logos={techLogos1} direction="left" speed={45} />
                   <LogoLoop logos={techLogos2} direction="right" speed={48} />
                 </div>
@@ -263,7 +263,7 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
 
               {/* Arrow - 1 row */}
               <motion.div
-                className="row-span-1 spotlight-card rounded-2xl flex items-center justify-center py-2 cursor-pointer"
+                className="lg:row-span-1 spotlight-card rounded-2xl flex items-center justify-center py-3 lg:py-2 cursor-pointer"
                 onMouseMove={handleMouseMove}
                 onClick={() => {
                   const aboutSection = document.getElementById('about')
@@ -288,7 +288,7 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
 
             {/* Right Column - 4 units */}
             <motion.div
-              className="lg:col-span-4"
+              className="lg:col-span-4 min-h-[400px] lg:min-h-0"
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 1.4 }}

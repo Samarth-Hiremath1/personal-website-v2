@@ -40,16 +40,16 @@ export const LeadershipSection: React.FC = () => {
   ];
 
   return (
-    <div className="w-full py-24 px-8">
+    <div className="w-full py-12 sm:py-16 md:py-24 px-4 sm:px-6 md:px-8">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-5xl font-bold mb-3" style={{ color: '#FFFFFF' }}>Leadership</h2>
-          <p className="text-xl" style={{ color: '#B3A9C9' }}>Empowering communities through initiative and collaboration</p>
+        <div className="text-center mb-12 sm:mb-16 md:mb-20">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-3" style={{ color: '#FFFFFF' }}>Leadership</h2>
+          <p className="text-base sm:text-lg md:text-xl" style={{ color: '#B3A9C9' }}>Empowering communities through initiative and collaboration</p>
         </div>
 
         {/* Experience Cards */}
-        <div className="space-y-32">
+        <div className="space-y-16 sm:space-y-24 md:space-y-32">
           {experiences.map((experience, index) => (
             <LeadershipCard
               key={index}
@@ -122,11 +122,11 @@ const LeadershipCard: React.FC<LeadershipCardProps> = ({ experience, index }) =>
       <div
         className={`
           flex flex-col md:flex-row items-stretch
-          rounded-xl
+          rounded-lg sm:rounded-xl
           transition-all duration-300
           hover:scale-[1.02]
           overflow-hidden
-          min-h-[400px]
+          min-h-[300px] sm:min-h-[350px] md:min-h-[400px]
           ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}
         `}
         style={{
@@ -136,34 +136,35 @@ const LeadershipCard: React.FC<LeadershipCardProps> = ({ experience, index }) =>
         }}
       >
         {/* Image */}
-        <div className="w-full md:w-[45%] flex-shrink-0 relative">
+        <div className="w-full md:w-[45%] flex-shrink-0 relative min-h-[200px] sm:min-h-[250px] md:min-h-0">
           <Image
             src={experience.visual}
             alt={experience.title}
             fill
+            sizes="(max-width: 768px) 100vw, 45vw"
             className="object-cover"
             unoptimized={experience.isGif}
           />
         </div>
 
         {/* Content */}
-        <div className="w-full md:w-[55%] p-10 flex flex-col justify-center space-y-5">
+        <div className="w-full md:w-[55%] p-6 sm:p-8 md:p-10 flex flex-col justify-center space-y-4 sm:space-y-5">
           <div>
             <h3 
-              className="text-3xl font-bold mb-2 transition-colors duration-300"
+              className="text-2xl sm:text-3xl font-bold mb-2 transition-colors duration-300"
               style={{ color: '#FFFFFF' }}
               onMouseEnter={(e) => e.currentTarget.style.color = '#6C1FFF'}
               onMouseLeave={(e) => e.currentTarget.style.color = '#FFFFFF'}
             >
               {experience.title}
             </h3>
-            <p className="text-lg" style={{ color: '#B3A9C9' }}>
+            <p className="text-base sm:text-lg" style={{ color: '#B3A9C9' }}>
               {experience.role} • {experience.year}
             </p>
           </div>
-          <div className="space-y-5">
+          <div className="space-y-3 sm:space-y-5">
             {experience.description.map((paragraph, idx) => (
-              <p key={idx} className="leading-relaxed text-base" style={{ color: '#B3A9C9', letterSpacing: '0.3px' }}>
+              <p key={idx} className="leading-relaxed text-sm sm:text-base" style={{ color: '#B3A9C9', letterSpacing: '0.3px' }}>
                 {paragraph}
               </p>
             ))}

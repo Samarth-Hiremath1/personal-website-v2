@@ -30,7 +30,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <div 
-      className={`w-full h-full rounded-[40px] p-8 flex gap-6`} 
+      className={`w-full h-full rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-8 flex flex-col md:flex-row gap-4 sm:gap-6`} 
       style={{ 
         pointerEvents: 'auto',
         background: '#18132C',
@@ -39,16 +39,16 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       }}
     >
       {/* Left side - Content */}
-      <div className={`flex flex-col justify-between ${hasImages ? 'w-1/2' : 'w-full'}`}>
+      <div className={`flex flex-col justify-between ${hasImages ? 'md:w-1/2' : 'w-full'}`}>
         <div>
-          <h3 className="text-3xl font-bold mb-4 select-text" style={{ color: '#FFFFFF' }}>{title}</h3>
-          <p className="text-base mb-6 leading-relaxed select-text whitespace-pre-line" style={{ color: '#B3A9C9', letterSpacing: '0.3px' }}>{description}</p>
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 select-text" style={{ color: '#FFFFFF' }}>{title}</h3>
+          <p className="text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed select-text whitespace-pre-line" style={{ color: '#B3A9C9', letterSpacing: '0.3px' }}>{description}</p>
           
-          <div className="flex flex-wrap gap-2 mb-6">
+          <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
             {tags.map((tag, index) => (
               <span
                 key={index}
-                className="px-3 py-1.5 backdrop-blur-sm rounded-full text-sm font-medium"
+                className="px-2 sm:px-3 py-1 sm:py-1.5 backdrop-blur-sm rounded-full text-xs sm:text-sm font-medium"
                 style={{
                   background: 'rgba(108, 31, 255, 0.2)',
                   color: '#A85CFF',
@@ -62,11 +62,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
 
         {/* Links */}
-        <div className="flex gap-3 relative z-50">
+        <div className="flex gap-2 sm:gap-3 relative z-50">
           {demoLink && (
             <button
               onClick={(e) => handleLinkClick(demoLink, e)}
-              className="px-5 py-2.5 backdrop-blur-sm rounded-xl text-sm font-semibold transition-all duration-200 cursor-pointer"
+              className="px-4 sm:px-5 py-2 sm:py-2.5 backdrop-blur-sm rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer"
               style={{ 
                 pointerEvents: 'auto',
                 background: 'transparent',
@@ -92,7 +92,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           {githubLink && (
             <button
               onClick={(e) => handleLinkClick(githubLink, e)}
-              className="px-5 py-2.5 backdrop-blur-sm rounded-xl text-sm font-semibold transition-all duration-200 cursor-pointer"
+              className="px-4 sm:px-5 py-2 sm:py-2.5 backdrop-blur-sm rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer"
               style={{ 
                 pointerEvents: 'auto',
                 background: 'transparent',
@@ -119,13 +119,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
       {/* Right side - Images */}
       {hasImages && (
-        <div className="w-1/2">
+        <div className="md:w-1/2 mt-4 md:mt-0">
           {imageCount === 1 ? (
             <div className="relative w-full h-full rounded-2xl overflow-hidden flex items-center justify-center">
               <Image
                 src={images[0]}
                 alt={`${title} preview`}
                 fill
+                sizes="50vw"
                 className="object-contain p-2"
               />
             </div>
@@ -140,6 +141,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                     src={image}
                     alt={`${title} preview ${index + 1}`}
                     fill
+                    sizes="50vw"
                     className="object-contain p-2"
                   />
                 </div>
@@ -156,6 +158,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                     src={image}
                     alt={`${title} preview ${index + 1}`}
                     fill
+                    sizes="25vw"
                     className="object-contain p-2"
                   />
                 </div>
@@ -173,6 +176,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                     src={image}
                     alt={`${title} preview ${index + 1}`}
                     fill
+                    sizes="50vw"
                     className="object-contain p-2"
                   />
                 </div>

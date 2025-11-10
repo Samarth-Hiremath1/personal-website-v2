@@ -72,8 +72,12 @@ export const ProjectsSection: React.FC = () => {
   useEffect(() => {
     const maxScroll = projects.length * 300; // Increased from 200 to 300 for much more spacing
     let localProgress = scrollProgress;
+    const isMobile = window.innerWidth < 768;
 
     const handleWheel = (e: WheelEvent) => {
+      // Disable custom scroll behavior on mobile
+      if (isMobile) return;
+      
       if (!sectionRef.current || !headerRef.current) return;
 
       const rect = sectionRef.current.getBoundingClientRect();
@@ -123,6 +127,22 @@ export const ProjectsSection: React.FC = () => {
 
   // Calculate card transforms with cinematic motion
   const getCardTransform = (index: number) => {
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    
+    // On mobile, use simple stacking without scroll animation
+    if (isMobile) {
+      return {
+        position: 'relative' as const,
+        transform: 'none',
+        filter: 'none',
+        top: 'auto',
+        opacity: 1,
+        zIndex: index,
+        pointerEvents: 'auto' as React.CSSProperties['pointerEvents'],
+        marginBottom: '2rem'
+      };
+    }
+
     const cardStart = index * 300; // Updated to match new spacing
     const rawProgress = scrollProgress - cardStart;
 
@@ -193,6 +213,7 @@ export const ProjectsSection: React.FC = () => {
     const isInteractive = rawProgress >= 0 && rawProgress < 300;
 
     return {
+      position: 'absolute' as const,
       transform: `translateY(${translateY}%) scale(${scale})`,
       filter: blur > 0 ? `blur(${blur}px)` : 'none',
       top: `calc(50% - 360px + ${stackOffset}px)`, // Positioned higher to show full card including buttons
@@ -218,29 +239,41 @@ export const ProjectsSection: React.FC = () => {
       {/* Sticky header that stays at top of section */}
       <div
         ref={headerRef}
-        className="sticky top-20 z-10 text-center pt-12 pb-8 px-8"
+        className="sticky top-16 sm:top-20 z-10 text-center pt-8 sm:pt-12 pb-6 sm:pb-8 px-4 sm:px-6 md:px-8"
         style={{
           ...getHeaderStyle(),
           background: 'linear-gradient(180deg, #0A0812 0%, rgba(10, 8, 18, 0) 100%)'
         }}
       >
-        <h2 className="text-5xl font-bold mb-3" style={{ color: '#FFFFFF' }}>Featured Projects</h2>
-        <p className="text-xl" style={{ color: '#B3A9C9' }}>Building products that solve real problems</p>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-3" style={{ color: '#FFFFFF' }}>Featured Projects</h2>
+        <p className="text-base sm:text-lg md:text-xl" style={{ color: '#B3A9C9' }}>Building products that solve real problems</p>
       </div>
 
       {/* Cards container */}
-      <div className="max-w-6xl mx-auto px-8 relative mt-4" style={{ height: '80vh' }}>
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            className="absolute w-full"
-            style={getCardTransform(index)}
-          >
-            <div className="h-[600px]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 relative mt-4 md:min-h-[80vh]">
+        {/* Mobile: Stack cards vertically */}
+        <div className="md:hidden flex flex-col gap-6">
+          {projects.map((project, index) => (
+            <div key={index} className="w-full">
               <ProjectCard {...project} />
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+        
+        {/* Desktop: Animated stacking */}
+        <div className="hidden md:block relative" style={{ height: '80vh' }}>
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              className="w-full"
+              style={getCardTransform(index)}
+            >
+              <div className="h-[600px]">
+                <ProjectCard {...project} />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Reduced spacer */}

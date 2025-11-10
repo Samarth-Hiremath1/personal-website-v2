@@ -15,8 +15,8 @@ interface FlowingMenuProps {
 const FlowingMenu: React.FC<FlowingMenuProps> = ({ items = [] }) => {
   return (
     <div className="w-full h-full flex flex-col spotlight-card rounded-2xl">
-      <div className="p-6 flex-shrink-0" style={{ borderBottom: '1px solid rgba(108, 31, 255, 0.2)' }}>
-        <h3 className="text-xl font-bold" style={{ color: '#FFFFFF' }}>Experience</h3>
+      <div className="p-4 sm:p-6 flex-shrink-0" style={{ borderBottom: '1px solid rgba(108, 31, 255, 0.2)' }}>
+        <h3 className="text-lg sm:text-xl font-bold" style={{ color: '#FFFFFF' }}>Experience</h3>
       </div>
       <nav className="flex flex-col flex-1 overflow-hidden">
         {items.map((item, idx) => (
@@ -80,9 +80,9 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
   const repeatedMarqueeContent = useMemo(() => {
     return Array.from({ length: 4 }).map((_, idx) => (
       <React.Fragment key={idx}>
-        <span className="uppercase font-normal text-[2rem] leading-[1.2] px-4 py-2" style={{ color: '#0A0812' }}>{text}</span>
+        <span className="uppercase font-normal text-xl sm:text-2xl md:text-[2rem] leading-[1.2] px-3 sm:px-4 py-2" style={{ color: '#0A0812' }}>{text}</span>
         <div
-          className="w-[120px] h-[60px] my-4 mx-4 rounded-[30px] bg-cover bg-center flex-shrink-0"
+          className="w-[80px] h-[40px] sm:w-[100px] sm:h-[50px] md:w-[120px] md:h-[60px] my-3 sm:my-4 mx-3 sm:mx-4 rounded-[20px] sm:rounded-[25px] md:rounded-[30px] bg-cover bg-center flex-shrink-0"
           style={{ backgroundImage: `url(${image})` }}
         />
       </React.Fragment>
@@ -90,10 +90,10 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
   }, [text, image])
 
   return (
-    <div className="flex-1 relative overflow-hidden text-center" style={{ borderBottom: '1px solid rgba(108, 31, 255, 0.2)' }} ref={itemRef}>
+    <div className="flex-1 relative overflow-hidden text-center min-h-[60px] sm:min-h-[70px] md:min-h-[80px]" style={{ borderBottom: '1px solid rgba(108, 31, 255, 0.2)' }} ref={itemRef}>
       <a
         ref={linkRef}
-        className="flex items-center justify-center h-full relative cursor-pointer uppercase no-underline font-semibold text-[2rem] transition-colors duration-300"
+        className="flex items-center justify-center h-full relative cursor-pointer uppercase no-underline font-semibold text-lg sm:text-xl md:text-2xl lg:text-[2rem] transition-colors duration-300"
         style={{ color: '#FFFFFF' }}
         href={link}
         onClick={handleClick}

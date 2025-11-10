@@ -11,19 +11,19 @@ export const ContactSection: React.FC = () => {
   const socialLinks = [
     {
       name: 'LinkedIn',
-      icon: <FaLinkedin size={48} />,
+      icon: <FaLinkedin className="w-full h-full" />,
       url: 'https://www.linkedin.com/in/samarth-hiremath/',
       color: '#0A66C2'
     },
     {
       name: 'GitHub',
-      icon: <FaGithub size={48} />,
+      icon: <FaGithub className="w-full h-full" />,
       url: 'https://github.com/Samarth-Hiremath1',
       color: '#FFFFFF'
     },
     {
       name: 'Instagram',
-      icon: <FaInstagram size={48} />,
+      icon: <FaInstagram className="w-full h-full" />,
       url: 'https://www.instagram.com/samarth_hiremath1/',
       color: '#E4405F'
     }
@@ -32,21 +32,21 @@ export const ContactSection: React.FC = () => {
   return (
     <section 
       id="contact" 
-      className="min-h-[60vh] flex items-center justify-center py-20 px-8 relative"
+      className="min-h-[60vh] flex items-center justify-center py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 relative"
       style={{ backgroundColor: 'transparent' }}
     >
       <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-5xl font-bold mb-6" style={{ color: '#FFFFFF' }}>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6" style={{ color: '#FFFFFF' }}>
           Contact Me
         </h2>
-        <p className="text-xl mb-8" style={{ color: '#B3A9C9', letterSpacing: '0.3px' }}>
+        <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8" style={{ color: '#B3A9C9', letterSpacing: '0.3px' }}>
           Feel free to reach out! I love meeting new people.
         </p>
 
         {/* Email Button */}
         <button
           onClick={handleEmailClick}
-          className="px-8 py-3 backdrop-blur-sm rounded-xl text-base font-semibold transition-all duration-200 cursor-pointer mb-12"
+          className="px-6 sm:px-8 py-2.5 sm:py-3 backdrop-blur-sm rounded-xl text-sm sm:text-base font-semibold transition-all duration-200 cursor-pointer mb-8 sm:mb-12"
           style={{ 
             background: 'transparent',
             color: '#FFFFFF',
@@ -68,7 +68,7 @@ export const ContactSection: React.FC = () => {
         </button>
 
         {/* Social Links */}
-        <div className="flex items-center justify-center gap-8">
+        <div className="flex items-center justify-center gap-6 sm:gap-8">
           {socialLinks.map((social) => (
             <a
               key={social.name}
@@ -86,7 +86,9 @@ export const ContactSection: React.FC = () => {
                 e.currentTarget.style.filter = 'brightness(1)';
               }}
             >
-              {social.icon}
+              <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
+                {social.icon}
+              </div>
             </a>
           ))}
         </div>

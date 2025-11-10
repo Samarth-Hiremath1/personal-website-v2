@@ -34,33 +34,29 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div
-      className="w-full bg-transparent font-sans"
+      className="w-full bg-transparent font-sans relative"
       ref={containerRef}
     >
-      <div className="max-w-4xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <h2 className="text-4xl md:text-5xl mb-12 text-center font-bold" style={{ color: '#FFFFFF' }}>
+      <div className="max-w-4xl mx-auto py-12 sm:py-16 md:py-20 px-4 md:px-8 lg:px-10">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl mb-8 sm:mb-10 md:mb-12 text-center font-bold" style={{ color: '#FFFFFF' }}>
           Professional Experience
         </h2>
       </div>
 
       <div ref={ref} className="relative max-w-4xl mx-auto pb-0">
         {data.map((item, index) => {
-          const totalItems = data.length;
-          const start = index / totalItems;
-          const end = (index + 1) / totalItems;
-          
           return (
             <div
               key={index}
               ref={(el) => {
                 itemRefs.current[index] = el;
               }}
-              className="flex justify-start pt-10 md:pt-20 md:gap-10"
+              className="flex justify-start pt-8 sm:pt-12 md:pt-20 md:gap-10"
             >
-              <div className="sticky flex flex-col md:flex-row z-40 items-start top-40 self-start max-w-xs lg:max-w-sm md:w-full h-fit">
+              <div className="sticky flex flex-col md:flex-row z-40 items-start top-32 sm:top-36 md:top-40 self-start max-w-xs lg:max-w-sm md:w-full h-fit">
                 {/* Logo container - centered on timeline */}
                 <div 
-                  className="h-20 w-20 absolute -left-2 md:-left-2 rounded-full bg-white flex items-center justify-center overflow-hidden"
+                  className="h-16 w-16 sm:h-20 sm:w-20 absolute -left-2 md:-left-2 rounded-full bg-white flex items-center justify-center overflow-hidden"
                   style={{ 
                     border: '2px solid #6C1FFF',
                     boxShadow: '0 0 15px rgba(108, 31, 255, 0.4)'
@@ -86,9 +82,9 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 </div>
               </div>
 
-              <div className="relative pl-20 pr-4 md:pl-4 w-full">
+              <div className="relative pl-16 sm:pl-20 pr-4 md:pl-4 w-full">
                 <div className="md:hidden block mb-4 sticky top-20 z-30">
-                  <h3 className="text-xl font-bold mb-1" style={{ color: '#FFFFFF' }}>
+                  <h3 className="text-lg sm:text-xl font-bold mb-1" style={{ color: '#FFFFFF' }}>
                     {item.company}
                   </h3>
                   <p className="text-sm mb-1" style={{ color: '#B3A9C9' }}>

@@ -15,10 +15,17 @@ body {
   overflow-x: hidden;
   background-color: #0A0812;
   color: #FFFFFF;
+  -webkit-overflow-scrolling: touch;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Prevent horizontal scroll on mobile */
+body {
+  position: relative;
+  width: 100%;
 }
 
 body {
