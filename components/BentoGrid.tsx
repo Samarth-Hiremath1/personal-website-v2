@@ -2,15 +2,31 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
+import dynamic from 'next/dynamic'
 import LogoLoop from './ui/LogoLoop'
 import FlowingMenuReactBits from './ui/FlowingMenuReactBits'
-import Spline from '@splinetool/react-spline'
 import {
   SiReact, SiPython, SiNodedotjs, SiAmazonaws, SiNextdotjs,
   SiTypescript, SiTailwindcss, SiMongodb, SiCplusplus,
   SiJavascript, SiR, SiHtml5, SiCss3, SiMysql, SiGit,
   SiFastapi, SiDocker, SiNumpy, SiPandas
 } from 'react-icons/si'
+
+// Dynamically import Spline to avoid SSR issues
+const Spline = dynamic(() => import('@splinetool/react-spline'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="w-32 h-32 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #6C1FFF 0%, #A85CFF 100%)' }}>
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" style={{ color: '#FFFFFF' }}>
+          <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </div>
+    </div>
+  ),
+})
 
 interface BentoGridProps {
   onAllAnimationsComplete?: () => void
