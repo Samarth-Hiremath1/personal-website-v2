@@ -1,146 +1,134 @@
 import React from "react";
 import { Timeline } from "@/components/ui/Timeline";
+import { ExperienceTag } from "@/components/ui/ExperienceTag";
 
 export function TimelineDemo() {
   const data = [
     {
-      title: "2024",
-      content: (
+      company: "AggieWorks • Moober",
+      position: "Product Manager",
+      dates: "Apr 2025 - Present",
+      location: "Davis, CA",
+      logo: "/logos/aggieworks.png",
+      description: (
         <div>
-          <p className="mb-8 text-xs font-normal text-gray-300 md:text-sm">
-            Built and launched Aceternity UI and Aceternity UI Pro from scratch
+          <p className="mb-4 text-sm md:text-base text-gray-300 leading-relaxed">
+            As Moober's Product Manager, I am scaling our ridesharing platform (1,350+ users) by leading a cross-functional team of six engineers, designers, and marketers using Agile and data-driven prioritization.
           </p>
-          <div className="grid grid-cols-2 gap-4">
-            <img
-              src="https://assets.aceternity.com/templates/startup-1.webp"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
-            />
-            <img
-              src="https://assets.aceternity.com/templates/startup-2.webp"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
-            />
-            <img
-              src="https://assets.aceternity.com/templates/startup-3.webp"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
-            />
-            <img
-              src="https://assets.aceternity.com/templates/startup-4.webp"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
-            />
+          <p className="mb-4 text-sm md:text-base text-gray-300 leading-relaxed">
+            My role spanned strategy, product, and analytics—designing A/B tests, conducting user interviews, and using SQL insights to inform new feature rollouts, including commuter scheduling and real-time ride updates.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <ExperienceTag text="Product Management" />
+            <ExperienceTag text="SQL" />
+            <ExperienceTag text="Agile Methodologies" />
           </div>
         </div>
       ),
     },
     {
-      title: "Early 2023",
-      content: (
+      company: "Boston Consulting Group (BCG)",
+      position: "Data Analyst Intern, Contract",
+      dates: "Jun 2025 - Aug 2025",
+      location: "Remote",
+      logo: "/logos/bcg.png",
+      description: (
         <div>
-          <p className="mb-8 text-xs font-normal text-gray-300 md:text-sm">
-            I usually run out of copy, but when I see content this big, I try to
-            integrate lorem ipsum.
+          <p className="mb-4 text-sm md:text-base text-gray-300 leading-relaxed">
+            I supported a Web3 client by translating complex market and user research into an actionable strategy. I synthesized competitive analyses and user insights to identify high-value customer segments, directly shaping the client's go-to-market roadmap.
           </p>
-          <p className="mb-8 text-xs font-normal text-gray-300 md:text-sm">
-            Lorem ipsum is for people who are too lazy to write copy. But we are
-            not. Here are some more example of beautiful designs I built.
-          </p>
-          <div className="grid grid-cols-2 gap-4">
-            <img
-              src="https://assets.aceternity.com/pro/hero-sections.png"
-              alt="hero template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
-            />
-            <img
-              src="https://assets.aceternity.com/features-section.png"
-              alt="feature template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
-            />
-            <img
-              src="https://assets.aceternity.com/pro/bento-grids.png"
-              alt="bento template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
-            />
-            <img
-              src="https://assets.aceternity.com/cards.png"
-              alt="cards template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
-            />
+          <div className="flex flex-wrap gap-2">
+            <ExperienceTag text="Python" />
+            <ExperienceTag text="Market Research" />
+            <ExperienceTag text="Data Visualization" />
+            <ExperienceTag text="Go-to-Market Strategy" />
           </div>
         </div>
       ),
     },
     {
-      title: "Changelog",
-      content: (
+      company: "Snap Inc.",
+      position: "Software Engineering Intern",
+      dates: "Mar 2025 - Jun 2025",
+      location: "Davis, CA",
+      logo: "/logos/snap.png",
+      description: (
         <div>
-          <p className="mb-4 text-xs font-normal text-gray-300 md:text-sm">
-            Deployed 5 new components on Aceternity today
+          <p className="mb-4 text-sm md:text-base text-gray-300 leading-relaxed">
+            At Snap, I designed and developed AR filters in a cross-functional team using SnapML and JavaScript, creating interactive animal detection and live pet fashion styling experiences.
           </p>
-          <div className="mb-8">
-            <div className="flex items-center gap-2 text-xs text-gray-400 md:text-sm">
-              ✅ Card grid component
-            </div>
-            <div className="flex items-center gap-2 text-xs text-gray-400 md:text-sm">
-              ✅ Startup template Aceternity
-            </div>
-            <div className="flex items-center gap-2 text-xs text-gray-400 md:text-sm">
-              ✅ Random file upload lol
-            </div>
-            <div className="flex items-center gap-2 text-xs text-gray-400 md:text-sm">
-              ✅ Himesh Reshammiya Music CD
-            </div>
-            <div className="flex items-center gap-2 text-xs text-gray-400 md:text-sm">
-              ✅ Salman Bhai Fan Club registrations open
-            </div>
+          <p className="mb-4 text-sm md:text-base text-gray-300 leading-relaxed">
+            We deployed filters that received over 20,000 views in two weeks and improved engagement through iterative UX testing and rapid feedback loops.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <ExperienceTag text="SnapML" />
+            <ExperienceTag text="Machine Learning" />
+            <ExperienceTag text="Optimization" />
+            <ExperienceTag text="AR" />
           </div>
-          <div className="grid grid-cols-2 gap-4">
-            <img
-              src="https://assets.aceternity.com/pro/hero-sections.png"
-              alt="hero template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
-            />
-            <img
-              src="https://assets.aceternity.com/features-section.png"
-              alt="feature template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
-            />
-            <img
-              src="https://assets.aceternity.com/pro/bento-grids.png"
-              alt="bento template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
-            />
-            <img
-              src="https://assets.aceternity.com/cards.png"
-              alt="cards template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
-            />
+        </div>
+      ),
+    },
+    {
+      company: "Spin (Spin Scooters)",
+      position: "Strategy and Data Consultant Intern",
+      dates: "Apr 2025 - Jun 2025",
+      location: "Davis, CA",
+      logo: "/logos/spin.png",
+      description: (
+        <div>
+          <p className="mb-4 text-sm md:text-base text-gray-300 leading-relaxed">
+            I combined user research and data analytics to guide Spin's compliance and pricing strategies across 20K+ scooter ride data points. By conducting stakeholder interviews and surveys, I identified key policy and engagement trends.
+          </p>
+          <p className="mb-4 text-sm md:text-base text-gray-300 leading-relaxed">
+            I helped refine city partnership and pricing strategies by analyzing thousands of ride data points to pinpoint high-violation zones and optimize compliance.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <ExperienceTag text="Data Analytics" />
+            <ExperienceTag text="Product Strategy" />
+          </div>
+        </div>
+      ),
+    },
+    {
+      company: "The Tagapolous Lab",
+      position: "Machine Learning Researcher",
+      dates: "Nov 2024 - Apr 2025",
+      location: "Davis, CA",
+      logo: "/logos/tagapolous.png",
+      description: (
+        <div>
+          <p className="mb-4 text-sm md:text-base text-gray-300 leading-relaxed">
+            At the Tagkopoulos Lab, I automated ontology mapping workflows using Pandas, fuzzy matching, and data preprocessing to fine-tune NLP models for biomedical text analysis. I built a preclinical studies database and enhanced dataset curation scripts for disease-drug prediction, with the goal to advance drug discovery and reduce R&D costs.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <ExperienceTag text="Machine Learning" />
+            <ExperienceTag text="Python" />
+            <ExperienceTag text="Data Analysis" />
+            <ExperienceTag text="NLP" />
+          </div>
+        </div>
+      ),
+    },
+    {
+      company: "Liner AI",
+      position: "AI Product Development Consultant Intern",
+      dates: "Oct 2024 - Dec 2024",
+      location: "Davis, CA",
+      logo: "/logos/liner.png",
+      description: (
+        <div>
+          <p className="mb-4 text-sm md:text-base text-gray-300 leading-relaxed">
+            I defined product strategy and UX design for Liner's AI-powered study platform, driving an increase in feature adoption through data-driven decisions.
+          </p>
+          <p className="mb-4 text-sm md:text-base text-gray-300 leading-relaxed">
+            I led a team to build and iterate on Figma prototypes, introduced a guided onboarding experience, and used industry frameworks to prioritize roadmap items.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <ExperienceTag text="Product Management" />
+            <ExperienceTag text="Market Research" />
+            <ExperienceTag text="UI/UX" />
+            <ExperienceTag text="Figma" />
           </div>
         </div>
       ),
@@ -148,7 +136,7 @@ export function TimelineDemo() {
   ];
 
   return (
-    <div className="relative w-full overflow-clip">
+    <div className="relative w-full">
       <Timeline data={data} />
     </div>
   );

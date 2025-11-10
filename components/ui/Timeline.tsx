@@ -3,14 +3,19 @@ import { useScroll, useTransform, motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 
 interface TimelineEntry {
-  title: string;
-  content: React.ReactNode;
+  company: string;
+  position: string;
+  dates: string;
+  location: string;
+  logo: string;
+  description: React.ReactNode;
 }
 
 export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     if (ref.current) {
@@ -39,28 +44,59 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       </div>
 
       <div ref={ref} className="relative max-w-4xl mx-auto pb-20">
-        {data.map((item, index) => (
-          <div
-            key={index}
-            className="flex justify-start pt-10 md:pt-40 md:gap-10"
-          >
-            <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full h-fit">
-              <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-dark flex items-center justify-center border border-primary">
-                <div className="h-4 w-4 rounded-full bg-primary border border-secondary p-2" />
+        {data.map((item, index) => {
+          const totalItems = data.length;
+          const start = index / totalItems;
+          const end = (index + 1) / totalItems;
+          
+          return (
+            <div
+              key={index}
+              ref={(el) => {
+                itemRefs.current[index] = el;
+              }}
+              className="flex justify-start pt-10 md:pt-20 md:gap-10"
+            >
+              <div className="sticky flex flex-col md:flex-row z-40 items-start top-40 self-start max-w-xs lg:max-w-sm md:w-full h-fit">
+                {/* Logo container - centered on timeline */}
+                <div className="h-20 w-20 absolute -left-2 md:-left-2 rounded-full bg-white flex items-center justify-center border-2 border-primary overflow-hidden">
+                  <img
+                    src={item.logo}
+                    alt={`${item.company} logo`}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                
+                <div className="hidden md:block md:pl-28 sticky top-40">
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
+                    {item.company}
+                  </h3>
+                  <p className="text-sm md:text-base text-gray-400 mb-1">
+                    {item.position}
+                  </p>
+                  <p className="text-xs md:text-sm text-gray-500">
+                    {item.dates} | {item.location}
+                  </p>
+                </div>
               </div>
-              <h3 className="hidden md:block text-xl md:pl-20 md:text-3xl font-bold text-gray-400 whitespace-nowrap">
-                {item.title}
-              </h3>
-            </div>
 
-            <div className="relative pl-20 pr-4 md:pl-4 w-full">
-              <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-gray-400">
-                {item.title}
-              </h3>
-              {item.content}{" "}
+              <div className="relative pl-20 pr-4 md:pl-4 w-full">
+                <div className="md:hidden block mb-4 sticky top-20 z-30">
+                  <h3 className="text-xl font-bold text-white mb-1">
+                    {item.company}
+                  </h3>
+                  <p className="text-sm text-gray-400 mb-1">
+                    {item.position}
+                  </p>
+                  <p className="text-xs text-gray-500">
+                    {item.dates} | {item.location}
+                  </p>
+                </div>
+                {item.description}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
         <div
           style={{
             height: height + "px",
