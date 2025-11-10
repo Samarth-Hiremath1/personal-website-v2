@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
+import dynamic from 'next/dynamic'
 import LogoLoop from './ui/LogoLoop'
 import FlowingMenuReactBits from './ui/FlowingMenuReactBits'
 import {
@@ -10,6 +11,25 @@ import {
   SiJavascript, SiR, SiHtml5, SiCss3, SiMysql, SiGit,
   SiFastapi, SiDocker, SiNumpy, SiPandas
 } from 'react-icons/si'
+
+// Dynamically import SplineRobot to avoid Three.js conflicts
+const SplineRobot = dynamic(() => import('./SplineRobot'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="text-center">
+        <div className="w-32 h-32 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #6C1FFF 0%, #A85CFF 100%)' }}>
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" style={{ color: '#FFFFFF' }}>
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </div>
+        <p style={{ color: '#B3A9C9' }}>Loading...</p>
+      </div>
+    </div>
+  ),
+})
 
 interface BentoGridProps {
   onAllAnimationsComplete?: () => void
@@ -213,20 +233,9 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 1.8 }}
-                  className="w-full h-full flex items-center justify-center"
+                  className="w-full h-full"
                 >
-                  {/* Temporarily disabled due to Three.js conflict with Globe */}
-                  <div className="text-center">
-                    <div className="w-32 h-32 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #6C1FFF 0%, #A85CFF 100%)' }}>
-                      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" style={{ color: '#FFFFFF' }}>
-                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </div>
-                    <p style={{ color: '#B3A9C9' }}>3D Robot Model</p>
-                    <p className="text-sm" style={{ color: '#B3A9C9', opacity: 0.7 }}>Coming Soon</p>
-                  </div>
+                  <SplineRobot />
                 </motion.div>
               </div>
             </motion.div>
