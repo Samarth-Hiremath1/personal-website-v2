@@ -5,6 +5,8 @@ import Navbar from '../components/Navbar'
 import BentoGrid from '../components/BentoGrid'
 import LightRays from '../components/ui/LightRays'
 import { TimelineDemo } from '../components/TimelineDemo'
+import { GlobeDemo } from '../components/ui/GlobeDemo'
+import { ProjectsSection } from '../components/ProjectsSection'
 
 export default function Home() {
   const [showLightRays, setShowLightRays] = useState(false)
@@ -38,31 +40,32 @@ export default function Home() {
 
         {/* About Section */}
         <section id="about" className="min-h-screen px-8 py-16 flex items-center justify-center">
-          <div className="max-w-5xl mx-auto w-full text-center">
-            <h2 className="text-4xl font-bold text-white mb-8">About Me</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center text-left">
-              {/* Left side - Profile Image */}
-              <div className="md:col-span-1 flex justify-center">
-                <div className="w-64 h-64 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center overflow-hidden">
-                  <div className="w-60 h-60 bg-gray-700 rounded-2xl flex items-center justify-center">
-                    <svg width="100" height="100" viewBox="0 0 24 24" fill="none" className="text-gray-400">
-                      <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </div>
+          <div className="max-w-7xl mx-auto w-full text-center">
+            <h2 className="text-4xl font-bold text-white mb-12">About Me</h2>
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-center text-left">
+              {/* Left side - Globe */}
+              <div className="md:col-span-2 flex justify-start -ml-8">
+                <div className="w-full h-[500px] relative">
+                  <GlobeDemo />
                 </div>
               </div>
 
               {/* Right side - About text */}
-              <div className="md:col-span-2">
-                <p className="text-xl text-gray-300 leading-relaxed mb-4">
-                  I'm <span className="text-primary font-semibold">Samarth Hiremath</span>, an aspiring SWE, Product Manager, Management Consultant, and Entrepreneur.
+              <div className="md:col-span-3 pl-4">
+                <p className="text-lg text-gray-300 leading-relaxed mb-4">
+                  Hey, I'm <span className="font-bold text-white">Samarth</span>, an aspiring <span className="font-bold text-white">Software Engineer</span>, <span className="font-bold text-white">Product Manager</span>, and <span className="font-bold text-white">Entrepreneur</span> who's obsessed with building <span className="font-bold text-white">AI-driven products</span> that actually make a difference.
                 </p>
-                <p className="text-xl text-gray-300 leading-relaxed mb-4">
-                  I'm passionate about building AI-driven products that create real-world impact.
+                <p className="text-lg text-gray-300 leading-relaxed mb-4">
+                  I love taking ideas from <span className="font-bold text-white">0 → 1</span>, blending technical problem-solving with strategic thinking to turn ambitious concepts into real impact.
                 </p>
-                <p className="text-xl text-gray-300 leading-relaxed">
-                  I'm pursuing my greatest passions of Tech and Business while double majoring in <span className="text-primary font-semibold">Computer Science and Statistics @ UC Davis</span>.
+                <p className="text-lg text-gray-300 leading-relaxed mb-4">
+                  My background spans <span className="font-bold text-white">software engineering</span>, <span className="font-bold text-white">product management</span>, and <span className="font-bold text-white">consulting</span>, giving me a toolkit to navigate both the code and the bigger picture.
+                </p>
+                <p className="text-lg text-gray-300 leading-relaxed mb-4">
+                  I'm driven by <span className="font-bold text-white">curiosity</span>, <span className="font-bold text-white">creativity</span>, and the pursuit of doing work that matters — projects that leave a mark and people who inspire growth.
+                </p>
+                <p className="text-lg text-gray-300 leading-relaxed">
+                  If you're working on something bold or just want to exchange ideas, let's connect: <a href="mailto:samhiremath@ucdavis.edu" className="text-primary hover:text-secondary transition-colors font-semibold hover:underline">samhiremath@ucdavis.edu</a>
                 </p>
               </div>
             </div>
@@ -70,16 +73,13 @@ export default function Home() {
         </section>
 
         {/* Experience Section */}
-        <section id="experience" className="min-h-screen px-8 py-16">
+        <section id="experience" className="min-h-screen px-8 py-16 pb-32">
           <TimelineDemo />
         </section>
 
         {/* Projects Section */}
-        <section id="projects" className="min-h-screen px-8 py-16 flex items-center justify-center">
-          <div className="text-center">
-            <h2 className="text-4xl font-bold text-white mb-4">Projects</h2>
-            <p className="text-gray-400">Coming Soon</p>
-          </div>
+        <section id="projects" className="min-h-screen pt-16">
+          <ProjectsSection />
         </section>
 
         {/* Leadership Section */}

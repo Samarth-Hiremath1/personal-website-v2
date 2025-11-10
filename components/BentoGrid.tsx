@@ -105,27 +105,27 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
     {
       link: '#',
       text: 'Snap Inc.',
-      image: 'https://picsum.photos/600/400?random=1'
+      image: '/logos/snap.png'
     },
     {
       link: '#',
       text: 'Boston Consulting Group',
-      image: 'https://picsum.photos/600/400?random=2'
+      image: '/logos/bcg.png'
     },
     {
       link: '#',
       text: 'Spin Scooters',
-      image: 'https://picsum.photos/600/400?random=3'
+      image: '/logos/spin.png'
     },
     {
       link: '#',
       text: 'Liner AI',
-      image: 'https://picsum.photos/600/400?random=4'
+      image: '/logos/liner.png'
     },
     {
       link: '#',
       text: 'AggieWorks',
-      image: 'https://picsum.photos/600/400?random=5'
+      image: '/logos/aggieworks.png'
     },
   ]
 
@@ -152,7 +152,7 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
           transition={{ duration: 0.3, delay: 1.2 }}
         >
           <motion.div
-            className="glass-morphism rounded-2xl bento-glow p-8 flex items-center justify-center"
+            className="glass-morphism rounded-2xl bento-glow overflow-hidden"
             style={{
               width: targetSize.width || 'auto',
               height: targetSize.height || 'auto'
@@ -169,18 +169,11 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
               ease: [0.25, 0.1, 0.25, 1.0]
             }}
           >
-            <div className="text-center">
-              <div className="w-32 h-32 mx-auto mb-4 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center overflow-hidden">
-                <div className="w-28 h-28 bg-gray-700 rounded-full flex items-center justify-center">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" className="text-gray-400">
-                    <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-              </div>
-              <h3 className="text-xl font-bold text-white">Samarth H.</h3>
-              <p className="text-gray-400">Software Engineer</p>
-            </div>
+            <img 
+              src="/profile.jpg" 
+              alt="Samarth H." 
+              className="w-full h-full object-cover"
+            />
           </motion.div>
         </motion.div>
       )}
@@ -240,24 +233,17 @@ export default function BentoGrid({ onAllAnimationsComplete }: BentoGridProps) {
               {/* Profile Image - 7 rows */}
               <motion.div
                 ref={profileRef}
-                className="row-span-7 spotlight-card rounded-2xl p-8 flex items-center justify-center"
+                className="row-span-7 spotlight-card rounded-2xl overflow-hidden"
                 onMouseMove={handleMouseMove}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: animationComplete ? 1 : 0 }}
                 transition={{ duration: 0.5, delay: animationComplete ? 0 : 0 }}
               >
-                <div className="text-center">
-                  <div className="w-32 h-32 mx-auto mb-4 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center overflow-hidden">
-                    <div className="w-28 h-28 bg-gray-700 rounded-full flex items-center justify-center">
-                      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" className="text-gray-400">
-                        <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-bold text-white">Samarth H.</h3>
-                  <p className="text-gray-400">Software Engineer</p>
-                </div>
+                <img 
+                  src="/profile.jpg" 
+                  alt="Samarth H." 
+                  className="w-full h-full object-cover"
+                />
               </motion.div>
 
               {/* Tech Stack - 3 rows */}
