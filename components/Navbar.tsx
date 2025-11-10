@@ -44,9 +44,17 @@ export default function Navbar() {
             }}
           >
             {/* Logo */}
-            <div className="text-lg sm:text-xl font-bold text-white">
+            <motion.button
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+                setTimeout(() => window.location.reload(), 500)
+              }}
+              className="text-lg sm:text-xl font-bold text-white cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               Samarth H.
-            </div>
+            </motion.button>
 
             {/* Navigation Items - Desktop */}
             <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
